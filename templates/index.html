@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+		<style type="text/css">
+			#login {
+				margin-left: 300px;
+			}
+
+			body {
+				background-color: #FFFFFF;
+				/* background-size:cover; */
+			}
+
+			#content {
+				position: absolute;
+				margin-top: -58px;
+				margin-left: 20%;
+				margin-right: 20%;
+			}
+
+			#image img {
+				position: absolute;
+				margin-top: 10.25rem;
+				margin-left: -54px;
+				height: 22.25rem;
+				width: 35.25rem;
+			}
+
+			#login_form {
+				position: absolute;
+				width: 400px;
+				height: 19.25rem;
+				margin-top: 10.25rem;
+				border: #e0e0e0 5px solid;
+				padding-left: 1.5625rem;
+				padding-top: 1.5625rem;
+				padding-bottom: 1.5625rem;
+				margin-left: 550px;
+
+			}
+
+			#login_form input {
+				margin-top: 15px;
+				width: 250px;
+				height: 40px;
+			}
+
+			#Button {
+				width: 100px;
+				color: green;
+				border-radius: 25px;
+				margin-left: 80px;
+				margin-top: 20px;
+			}
+
+			.b_foot {
+				position: absolute;
+				margin-top: 36.25rem;
+				margin-left: -75px;
+			}
+			.b_foot dl{
+				padding-left: 100px;
+			}
+
+		</style>
+		<link rel="stylesheet" type="text/css" href="../static/css/rj_layout.css" />
+		<link rel="stylesheet" href="../static/css/iconfont.css">
+		<link rel="stylesheet" href="../static/css/cssreset.css" />
+		<link rel="stylesheet" href="../static/css/login_style.css">
+	</head>
+	<body>
+		<div id="content">
+
+			<div class="rj-layout-header">
+				<div class="rj-header-logo">智能Web后台</div>
+				<div class="rj-header-left">
+					<span aria-hidden="true"></span>
+				</div>
+
+				<div class="rj-header-right">
+					<a href="/login"><span aria-hidden="true"></span>登录</a>&nbsp;
+					<a href="#"><span aria-hidden="true"></span> &nbsp;退出</a>
+				</div>
+			</div>
+
+			<div id="image">
+				<img src="../static/images/index.png" />
+			</div>
+
+			<div id="login_form">
+				<form action="{{ url_for("userController.login") }}" method="post">
+					<table>
+						<tr>
+							<td>
+								<span style="font-size: large;"><b>账号登录</b></span>
+							</td>
+						</tr>
+						<tr>
+							<td>用户名：</td>
+							<td> <input type="text" name="username" /></td>
+						</tr>
+						<tr>
+							<td>密码：</td>
+							<td><input type="password" name="password" /></td>
+						</tr>
+					</table>
+					<input type="submit" id="Button" value="登录" />
+					<a href="{{ url_for("userController.viewRegister") }}"><input type="button" id="Button" value="注册" /></a>
+				</form>
+			</div>
+
+
+			<!-- 			<div class="b_foot">
+				<div class=""></div>
+				<a href="#">关于我们</a>
+
+			</div> -->
+			<div class="b_foot">
+				<footer style="height: 100px;">
+					<div class="clearboth list">
+						<dl class="dl_left clearboth">
+							<dt>Web Dorm</dt>
+							<dd><a href="#">关于我们</a></dd>
+							<dd><a href="#">联系我们</a></dd>
+							<dd><a href="#">加入我们</a></dd>
+						</dl>
+					</div>
+				</footer>
+			</div>
+
+		</div>
+
+
+
+
+	</body>
+</html>

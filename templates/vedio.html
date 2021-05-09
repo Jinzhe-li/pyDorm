@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>智能Web后台</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/rj_layout.css" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.3.0/video-js.min.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.3.0/video.min.js"></script>
+		<style type="text/css">
+			.vedio_main video {
+				position: absolute;
+				width: 900px;
+				height: 550px;
+			}
+
+			.vedio_list ul {
+				border: #FFFFFF 5px solid;
+				position: absolute;
+				left: 965px;
+				top: 100px;
+				width: 12.5rem;
+				height: 500px;
+			}
+
+			.vedio_list ul li {
+				list-style: none;
+				height: 130px;
+			}
+
+			.vedio_list ul img {
+				height: 80px;
+				width: 12.5rem;
+			}
+
+			.vedio_list ul a {
+				text-decoration: none;
+				height: 10px;
+				color: #000000;
+			}
+
+			#scroll_list ul {
+				width: 14rem;
+				height: 500px;
+				overflow-y: scroll;
+
+			}
+		</style>
+	</head>
+	<script>
+		var player = videojs('example_video_1', {
+		muted: true,
+		controls: true,
+		height: 600,
+		width: 900,
+		loop: true,
+		// 更多配置.....
+	});
+    </script>
+	<body>
+
+		<div class="rj-layout-header">
+			<div class="rj-header-logo">智能Web后台</div>
+			<div class="rj-header-left">
+				<span aria-hidden="true"></span>
+			</div>
+
+			<div class="rj-header-right">
+				<a href="#"><span aria-hidden="true"></span>登录</a>&nbsp;
+				<a href="#"><span aria-hidden="true"></span> &nbsp;退出</a>
+			</div>
+		</div>
+
+		<div class="rj-layout-side">
+
+			<ul class="rj-side-nav">
+				<li>
+					<span class="rj-side-nav-more"></span>
+					<a href="#"><span aria-hidden="true"></span> &nbsp;宿舍状况</a>
+
+					<ul class="">
+						<li><a href="{{ url_for("userController.viewMain") }}">基本信息</a> </li>
+						<li><a href="{{ url_for("vedioController.viewVedio") }}">历史视频</a></li>
+						<li><a href="#">危险日志</a></li>
+						<li><a href="#">-----</a></li>
+					</ul>
+				</li>
+
+				<li><a href="{{ url_for("userController.pushmydata") }}"><span aria-hidden="true"></span> &nbsp;报寝</a></li>
+				<li><a href="#"><span aria-hidden="true"></span> &nbsp;饮水机</a></li>
+				<li><a href="{{ url_for("userController.updateUserMessage") }}"><span aria-hidden="true"></span> &nbsp;账户设置</a></li>
+			</ul>
+
+		</div>
+
+		<div class="rj-layout-main">
+			<h3 style="margin-left: 10px;">视频播放</h3>
+			<div class="vedio_main">
+				<div>
+					<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="http://vjs.zencdn.net/v/oceans.png">
+						<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="vedio_list">
+					<h3 style="margin-left: 1000px;">视频列表</h3>
+					<div id="scroll_list">
+						<ul>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div><img src="../static/images/vedio.png" /></div>
+									<div><a href="#">2021/5/9 视频详情</a></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

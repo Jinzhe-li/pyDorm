@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../static/css/rj_layout.css" />
+		<link rel="stylesheet" href="../static/css/cssreset.css">
+		<link rel="stylesheet" href="../static/css/iconfont.css">
+		<link rel="stylesheet" href="../static/css/register_style.css">
+		<style type="text/css">
+			.register_form{
+				margin-top: 100px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<main>
+			<div class="rj-layout-header">
+				<div class="rj-header-logo">智能Web后台</div>
+				<div class="rj-header-left">
+					<span aria-hidden="true"></span>
+				</div>
+
+				<div class="rj-header-right">
+					<a href="#"><span aria-hidden="true"></span>登录</a>&nbsp;
+					<a href="#"><span aria-hidden="true"></span> &nbsp;退出</a>
+				</div>
+			</div>
+			
+			<div class ="register_form">
+				<p class="m_top">
+					<span>注册</span>
+				</p>
+				<div class="m_bot">
+					<div class="m_bot_min">
+						<form action="{{ url_for("userController.register") }}" class="form1">
+							<input type="text" placeholder="昵称" class="in_name">
+							<p class="sh_tip">
+								安全系数 &nbsp;
+								<i class="weak"></i>
+								<i class="medium"></i>
+								<i class="strong"></i>
+								<span class="strong_word"></span>
+							</p>
+							<input type="password" placeholder="密码（6-16个字符组成，区分大小写）" class="password">
+							<div class="num">
+								<input type="text" name="" id="" class="area" placeholder="中国大陆">
+								<span class="iconfont icon-xiala"></span>
+								<input type="text" id="" class="tel" placeholder="填写常用手机号">
+								<ol class="show_area">
+									<li>中国大陆</li>
+									<li>中国香港</li>
+									<li>中国台湾</li>
+									<li>中国澳门</li>
+									<li>澳大利亚</li>
+								</ol>
+							</div>
+							<div class="mess clearboth">
+								<input type="text" placeholder="请输入短信验证码" class="input_mess">
+								<p>点击获取</p>
+							</div>
+							<p class="check">
+								<span class="agree"></span>
+								<input type="checkbox">
+								我已同意<a href="#">《Web Dorm用户使用协议》</a href="#">和<a href="#">《隐私政策》</a></label>
+							</p>
+							<input type="submit" value="注册" class="submit">
+
+							<p class="already"><a href="#">已有账号，直接登录></a></p>
+						</form>
+						<div class="show_tip">
+							<p>请告诉我你的昵称吧</p>
+							<p>密码不能小于6个字符</p>
+							<p>请输入手机号</p>
+							<p>请输入验证码</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+
+
+		<script src="../js/register.js"></script>
+	</body>
+
+</html>

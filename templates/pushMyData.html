@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>智能Web后台</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/rj_layout.css" />
+		<link rel="stylesheet" href="../static/css/cssreset.css">
+		<link rel="stylesheet" href="../static/css/iconfont.css">
+		<link rel="stylesheet" href="../static/css/register_style.css">
+		<style type="text/css">
+			.update_form {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="rj-layout-header">
+			<div class="rj-header-logo">智能Web后台</div>
+			<div class="rj-header-left">
+				<span aria-hidden="true"></span>
+			</div>
+
+			<div class="rj-header-right">
+				<a href="#"><span aria-hidden="true"></span>登录</a>&nbsp;
+				<a href="#"><span aria-hidden="true"></span> &nbsp;退出</a>
+			</div>
+		</div>
+
+		<div class="rj-layout-side">
+
+			<ul class="rj-side-nav">
+				<li>
+					<span class="rj-side-nav-more"></span>
+					<a href="#"><span aria-hidden="true"></span> &nbsp;宿舍状况</a>
+
+					<ul class="">
+						<li><a href="{{ url_for("userController.viewMain") }}">基本信息</a> </li>
+						<li><a href="{{ url_for("vedioController.viewVedio") }}">历史视频</a></li>
+						<li><a href="#">危险日志</a></li>
+						<li><a href="#">-----</a></li>
+					</ul>
+				</li>
+
+				<li><a href="{{ url_for("userController.pushmydata") }}"><span aria-hidden="true"></span> &nbsp;报寝</a></li>
+				<li><a href="#"><span aria-hidden="true"></span> &nbsp;饮水机</a></li>
+				<li><a href="{{ url_for("userController.updateUserMessage") }}"><span aria-hidden="true"></span> &nbsp;账户设置</a></li>
+			</ul>
+
+		</div>
+
+		<div class="rj-layout-main">
+			<main>
+				<div class="update_form">
+					<p class="m_top">
+						<span>报寝</span>
+					</p>
+					<div class="m_bot">
+						<div class="m_bot_min">
+							<form action="" class="form1">
+								<input type="text" placeholder="昵称" class="in_name" style="margin-bottom: 2.125rem;" value="该账户的用户名自动补全"
+								 readonly />
+								<input type="text" placeholder="所处位置" />
+								<input type="datetime" placeholder="上报时间" />
+								<input type="submit" value="上报" style="color: #00A1D6;" />
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</main>
+
+
+
+			<script src="../js/register.js"></script>
+		</div>
+
+
+
+
+	</body>
+</html>

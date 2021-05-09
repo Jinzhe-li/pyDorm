@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>智能Web后台</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/rj_layout.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/goal-thermometer.css" />
+		<script type="text/javascript">
+			var currentAmount = 85;
+		</script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="../static/js/goal-thermometer.js"></script>
+		<style type="text/css">
+			/* 折线图 */
+			#container1 {
+				margin-left: 22px;
+				margin-top: 30px;
+				height: 350px;
+				width: 38.75rem;
+			}
+			/* 温度计 */
+			#centered {
+				position: absolute;
+				margin-top: -350px;
+				margin-left: 900px;
+				height: 500px;
+				width: 500px;
+			}
+
+			/* 湿度计 */
+			#container {
+				position: absolute;
+				margin-top: -106px;
+				margin-left: 727px;
+				height: 500px;
+				width: 500px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="rj-layout-header">
+			<div class="rj-header-logo">智能Web后台</div>
+			<div class="rj-header-left">
+				<span aria-hidden="true"></span>
+			</div>
+
+			<div class="rj-header-right">
+				<a href="#"><span aria-hidden="true"></span>登录</a>&nbsp;
+				<a href="#"><span aria-hidden="true"></span> &nbsp;退出</a>
+			</div>
+		</div>
+
+		<div class="rj-layout-side">
+
+			<ul class="rj-side-nav">
+				<li>
+					<span class="rj-side-nav-more"></span>
+					<a href="#"><span aria-hidden="true"></span> &nbsp;宿舍状况</a>
+
+					<ul class="">
+						<li><a href="{{ url_for("userController.viewMain") }}">基本信息</a> </li>
+						<li><a href="{{ url_for("vedioController.viewVedio") }}">历史视频</a></li>
+						<li><a href="#">危险日志</a></li>
+						<li><a href="#">-----</a></li>
+					</ul>
+				</li>
+
+				<li><a href="{{ url_for("userController.pushmydata") }}"><span aria-hidden="true"></span> &nbsp;报寝</a></li>
+				<li><a href="#"><span aria-hidden="true"></span> &nbsp;饮水机</a></li>
+				<li><a href="{{ url_for("userController.updateUserMessage") }}"><span aria-hidden="true"></span> &nbsp;账户设置</a></li>
+			</ul>
+
+		</div>
+
+		<div class="rj-layout-main">
+			<div class="content">
+				<!-- 放置折线图 -->
+				<div class="figure">
+					<div id="container1"></div>
+					<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+					<script type="text/javascript">
+						var dom = document.getElementById("container1");
+						var myChart = echarts.init(dom);
+						var app = {};
+
+						var option;
+						option = {
+							title: {
+								text: '近一周温湿度情况'
+							},
+							tooltip: {
+								trigger: 'axis'
+							},
+							legend: {
+								data: ['温度', '湿度']
+							},
+							grid: {
+								left: '3%',
+								right: '4%',
+								bottom: '3%',
+								containLabel: true
+							},
+							toolbox: {
+								feature: {
+									saveAsImage: {}
+								}
+							},
+							xAxis: {
+								type: 'category',
+								boundaryGap: false,
+								data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+							},
+							yAxis: {
+								type: 'value'
+							},
+							series: [{
+									name: '温度',
+									type: 'line',
+									stack: '总量',
+									data: [13, 12, 10, 14, 9, 23, 21]
+								},
+								{
+									name: '湿度',
+									type: 'line',
+									stack: '总量',
+									data: [20, 82, 19, 23, 29, 33, 31]
+								}
+							]
+						};
+
+						if (option && typeof option === 'object') {
+							myChart.setOption(option);
+						}
+					</script>
+				</div>
+
+				<!-- 仪表部分 -->
+				<div class=".meter">
+					<!-- 温度计部分 -->
+					<div id="centered">
+						<div id="goal-thermometer"></div>
+						<!-- <label style="position: absolute; margin-top: -116px;"> 温度计</label> -->
+					</div>
+
+					<!-- 湿度计部分 -->
+					<div id="container">
+						<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("container");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+							option = {
+								tooltip: {
+									formatter: '{a} <br/>{b} : {c}%'
+								},
+								series: [{
+									name: 'Pressure',
+									type: 'gauge',
+									detail: {
+										formatter: '{value}'
+									},
+									data: [{
+										value: 50,
+										name: '湿度'
+									}]
+								}]
+							};
+
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</body>
+</html>

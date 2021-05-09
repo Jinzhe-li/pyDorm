@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>智能Web后台</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/rj_layout.css" />
+		<link rel="stylesheet" href="../static/css/cssreset.css">
+		<link rel="stylesheet" href="../static/css/iconfont.css">
+		<link rel="stylesheet" href="../static/css/register_style.css">
+		<style type="text/css">
+			.update_form {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="rj-layout-header">
+			<div class="rj-header-logo">智能Web后台</div>
+			<div class="rj-header-left">
+				<span aria-hidden="true"></span>
+			</div>
+
+			<div class="rj-header-right">
+				<a href="#"><span aria-hidden="true"></span>登录</a>&nbsp;
+				<a href="#"><span aria-hidden="true"></span> &nbsp;退出</a>
+			</div>
+		</div>
+
+		<div class="rj-layout-side">
+
+			<ul class="rj-side-nav">
+				<li>
+					<span class="rj-side-nav-more"></span>
+					<a href="#"><span aria-hidden="true"></span> &nbsp;宿舍状况</a>
+
+					<ul class="">
+						<li><a href="{{ url_for("userController.viewMain") }}">基本信息</a> </li>
+						<li><a href="{{ url_for("vedioController.viewVedio") }}">历史视频</a></li>
+						<li><a href="#">危险日志</a></li>
+						<li><a href="#">-----</a></li>
+					</ul>
+				</li>
+
+				<li><a href="{{ url_for("userController.pushmydata") }}"><span aria-hidden="true"></span> &nbsp;报寝</a></li>
+				<li><a href="#"><span aria-hidden="true"></span> &nbsp;饮水机</a></li>
+				<li><a href="{{ url_for("userController.updateUserMessage") }}"><span aria-hidden="true"></span> &nbsp;账户设置</a></li>
+			</ul>
+
+		</div>
+
+		<div class="rj-layout-main">
+			<main>
+				<div class="update_form">
+					<p class="m_top">
+						<span>更改个人信息</span>
+					</p>
+					<div class="m_bot">
+						<div class="m_bot_min">
+							<form action="" class="form1">
+								<input type="text" placeholder="昵称" class="in_name" style="margin-bottom: 2.125rem;" value="张三" readonly/>
+
+								<input type="password" placeholder="密码（6-16个字符组成，区分大小写）" class="password">
+								<input type="text" placeholder="所处宿舍号" class="password">
+								<div class="num">
+									<input type="text" name="" id="" class="area" placeholder="中国大陆">
+									<span class="iconfont icon-xiala"></span>
+									<input type="text" id="" class="tel" placeholder="填写常用手机号">
+									<ol class="show_area">
+										<li>中国大陆</li>
+										<li>中国香港</li>
+										<li>中国台湾</li>
+										<li>中国澳门</li>
+										<li>澳大利亚</li>
+									</ol>
+								</div>
+								<div class="mess clearboth" style="margin-bottom:2.125rem;">
+									<input type="text" placeholder="请输入短信验证码" class="input_mess">
+									<p>点击获取</p>
+								</div>
+								<input type="submit" value="更改" style="color: #00A1D6;" />
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</main>
+
+
+
+			<script src="../js/register.js"></script>
+		</div>
+
+
+
+
+	</body>
+</html>
